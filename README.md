@@ -1,6 +1,6 @@
 # DSA-1 Lab Topics
 
-![DSA Image](https://example.com/dsa-image.png) <!-- Replace with an actual image URL -->
+![DSA Image](https://media.geeksforgeeks.org/wp-content/uploads/20240213174747/dsa-new.webp) <!-- Replace with an actual image URL -->
 
 Welcome to the DSA-1 Lab! This repository contains various topics and problem sets related to Data Structures and Algorithms. 🚀
 

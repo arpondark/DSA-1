@@ -3,8 +3,7 @@ class Solution {
      int largestInteger(int num) {
        const string s = to_string(num);
        int ans = 0;
-       // maxHeap[0] := the odd digits
-       // maxHeap[1] := the even digits
+      
        vector<priority_queue<int>> maxHeap(2);
    
        for (const char c : s) {
