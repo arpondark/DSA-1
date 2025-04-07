@@ -45,7 +45,7 @@ void insertAt(int x, int index) {
     n1->data = x;
     n1->next = NULL;
 
-    if (index == 0) { 
+    if (index == 0) {
         n1->next = head;
         head = n1;
         return;
@@ -56,7 +56,7 @@ void insertAt(int x, int index) {
         ptr = ptr->next;
     }
 
-    if (ptr == NULL) { 
+    if (ptr == NULL) {
         cout << "Index out of range!" << endl;
         delete n1;
         return;
@@ -94,6 +94,48 @@ void deleteAt(int index) {
     delete temp;
 }
 
+// ✅ Function to reverse the list in-place
+void reverseList() {
+    Node *prev = NULL;
+    Node *current = head;
+    Node *next = NULL;
+
+    while (current != NULL) {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+
+    head = prev;
+    cout << "List reversed successfully!" << endl;
+}
+
+
+bool isPrime(int num) {
+    if (num <= 1) return false;
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0)
+            return false;
+    }
+    return true;
+}
+
+
+void findFirstPrime() {
+    Node *ptr = head;
+    int pos = 0;
+    while (ptr != NULL) {
+        if (isPrime(ptr->data)) {
+            cout << "First prime number is " << ptr->data << " found at Node " << pos << endl;
+            return;
+        }
+        ptr = ptr->next;
+        pos++;
+    }
+    cout << "No prime number found in the list!" << endl;
+}
+
 int main() {
     insertAtLast(13);
     insertAtLast(7);
@@ -114,6 +156,13 @@ int main() {
 
     deleteAt(0); 
     print();
+
+    
+    reverseList();
+    print();
+
+    
+    findFirstPrime();
 
     return 0;
 }
