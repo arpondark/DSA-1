@@ -6,7 +6,7 @@ public:
         while(l<h)
         {
             int m = (l+h)/2;
-            if(nums[m]>=nums[m+1])
+            if(nums[m]>=nums[m+1] )
             {
                 h=m;
 
