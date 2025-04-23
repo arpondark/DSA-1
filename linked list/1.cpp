@@ -92,6 +92,53 @@ void deleteIndex(int index)
     delete temp;
 }
 
+void deleteMiddleAndPrevious(Node *&head) {
+    if (head == NULL || head->next == NULL || head->next->next == NULL) {
+        cout << "List must have more than 5 nodes and be odd in size!" << endl;
+        return;
+    }
+
+    Node *slow = head;
+    Node *fast = head;
+
+    // Use two pointers to find the middle node
+    while (fast != NULL && fast->next != NULL) {
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+
+    // `slow` now points to the middle node
+    Node *middle = slow;
+    Node *prevToMiddle = middle->prev;
+
+    // Delete the middle node
+    if (middle->next != NULL) {
+        middle->next->prev = prevToMiddle;
+    }
+    if (prevToMiddle != NULL) {
+        prevToMiddle->next = middle->next;
+    } else {
+        // If prevToMiddle is NULL, it means middle is the head
+        head = middle->next;
+    }
+    delete middle;
+
+    // Delete the node previous to the middle node
+    if (prevToMiddle != NULL) {
+        Node *prevToPrev = prevToMiddle->prev;
+        if (prevToMiddle->next != NULL) {
+            prevToMiddle->next->prev = prevToPrev;
+        }
+        if (prevToPrev != NULL) {
+            prevToPrev->next = prevToMiddle->next;
+        } else {
+            // If prevToPrev is NULL, it means prevToMiddle is the head
+            head = prevToMiddle->next;
+        }
+        delete prevToMiddle;
+    }
+}
+
 int main()
 {
     insertAtFirst(10);
@@ -100,10 +147,14 @@ int main()
     insertAtLast(5);
     insertAtLast(60);
     insertAtLast(4);
-    insertAt(25, 3);
+    insertAtLast(70);
 
+    cout << "Original List:" << endl;
     print();
-    deleteIndex(3);
+
+    deleteMiddleAndPrevious(head);
+
+    cout << "After Deleting Middle and Previous Node:" << endl;
     print();
 
     return 0;

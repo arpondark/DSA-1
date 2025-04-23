@@ -115,7 +115,7 @@ int main()
     deleteAt(2); 
     print();  
 
-    deleteAt(0); 
+    deleteAt(); 
     print();  
 
     return 0;
