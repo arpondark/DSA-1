@@ -6,8 +6,9 @@ Welcome to the DSA-1 Lab! This repository contains various topics and problem se
 
 ## Problem Set
 
-You can find a comprehensive list of problems to practice [here](https://cses.fi/problemset/list/). 📚
-[Problem set Leetcode](https://docs.google.com/document/d/1gJ9FZStrHmfAKOSjJLL_Yz-Z4EUr8TjnWf57TKTbO40/edit?tab=t.0)
+📚You can find a comprehensive list of problems to practice [here](https://cses.fi/problemset/list/).
+
+- [Problem set Leetcode](https://docs.google.com/document/d/1gJ9FZStrHmfAKOSjJLL_Yz-Z4EUr8TjnWf57TKTbO40/edit?tab=t.0)
 
 ## Table of Contents
 
