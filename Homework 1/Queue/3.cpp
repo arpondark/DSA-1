@@ -1,4 +1,4 @@
-/*  //*LeetCode Problem: 2073. Time Needed to Buy Tickets //*
+/*  //!LeetCode Problem: 2073. Time Needed to Buy Tickets 
 class Solution {
  public:
   int timeRequiredToBuy(vector<int>& tickets, int k) {
