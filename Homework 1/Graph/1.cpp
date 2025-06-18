@@ -22,6 +22,71 @@ public:
     }
 };
 */
+/*
+!!using dfs to find the perimeter of an island in a grid
+class Solution {
+public:
+
+    int counter = 0;
+     
+     void dfs(int i,int j,vector<vector<int>>& grid)
+     {
+        int l = grid.size();
+        int m = grid[0].size();
+
+        
+        if(i>=l || j >= m)
+        {
+            counter++;
+            return;
+        }
+        if(i<0 || j < 0)
+        {
+            counter++;
+            return;
+        }
+        if(grid[i][j] == 0)
+        {
+            counter++;
+            return;
+        }
+
+        if(grid[i][j] == -1)
+            return;
+
+        
+        grid[i][j] = -1;
+        
+
+
+        dfs(i-1,j,grid);
+        dfs(i+1,j,grid);
+        dfs(i,j-1,grid);
+        dfs(i,j+1,grid);
+     }
+ 
+    int islandPerimeter(vector<vector<int>>& grid) {
+
+        int r =0;
+        int c = 0;
+        
+        for(int i = 0; i < grid.size(); i++)
+        {
+            for(int j =0; j < grid[0].size();j++)
+            {
+                if(grid[i][j] == 1)
+                {
+                    dfs(i,j,grid);
+                    return counter;
+                }
+                
+            }
+        }
+         return counter;
+        
+    }
+};
+*/
 
 
 
@@ -29,33 +94,47 @@ public:
 
 using namespace std;
 
-int islandPerimeter(vector<vector<int>>& grid) {
+int counter = 0;
+
+void dfs(int i, int j, vector<vector<int>>& grid) {
     int rows = grid.size();
     int cols = grid[0].size();
-    int perimeter = 0;
     
-    // Directions: up, down, left, right
-    int dx[] = {-1, 1, 0, 0};
-    int dy[] = {0, 0, -1, 1};
+    // If out of bounds or water, increment perimeter counter
+    if (i < 0 || i >= rows || j < 0 || j >= cols || grid[i][j] == 0) {
+        counter++;
+        return;
+    }
     
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
+    // If already visited (marked as -1), return
+    if (grid[i][j] == -1) {
+        return;
+    }
+    
+    // Mark current cell as visited
+    grid[i][j] = -1;
+    
+    // Explore all 4 directions: up, down, left, right
+    dfs(i - 1, j, grid);
+    dfs(i + 1, j, grid);
+    dfs(i, j - 1, grid);
+    dfs(i, j + 1, grid);
+}
+
+int islandPerimeter(vector<vector<int>>& grid) {
+    counter = 0; // Reset counter for each call
+    
+    // Find the first land cell and start DFS
+    for (int i = 0; i < grid.size(); i++) {
+        for (int j = 0; j < grid[0].size(); j++) {
             if (grid[i][j] == 1) {
-                // Check all 4 directions for this land cell
-                for (int k = 0; k < 4; k++) {
-                    int newX = i + dx[k];
-                    int newY = j + dy[k];
-                    
-                    // If neighbor is out of bounds or water, add to perimeter
-                    if (newX < 0 || newX >= rows || newY < 0 || newY >= cols || grid[newX][newY] == 0) {
-                        perimeter++;
-                    }
-                }
+                dfs(i, j, grid);
+                return counter;
             }
         }
     }
     
-    return perimeter;
+    return counter;
 }
 
 int main() {
