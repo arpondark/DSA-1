@@ -1,0 +1,51 @@
+{
+  "problem": "Island Perimeter",
+  "difficulty": "Easy",
+  "source": "LeetCode 463",
+  "description": "Calculate the perimeter of islands in a 2D grid",
+  "test_cases": [
+    {
+      "name": "Example 1 - Complex island",
+      "input": "4 4\n0 1 0 0\n1 1 1 0\n0 1 0 0\n1 1 0 0",
+      "expected_output": "16",
+      "explanation": "The perimeter is calculated by counting all edges that border water or the boundary"
+    },
+    {
+      "name": "Single cell island",
+      "input": "1 1\n1",
+      "expected_output": "4",
+      "explanation": "A single cell has 4 edges, all touching the boundary"
+    },
+    {
+      "name": "Horizontal rectangle",
+      "input": "1 2\n1 0",
+      "expected_output": "4",
+      "explanation": "Single cell island at position (0,0)"
+    },
+    {
+      "name": "Vertical rectangle", 
+      "input": "2 1\n1\n1",
+      "expected_output": "6",
+      "explanation": "Two connected cells vertically"
+    },
+    {
+      "name": "No islands",
+      "input": "2 2\n0 0\n0 0",
+      "expected_output": "0",
+      "explanation": "No land cells means perimeter is 0"
+    },
+    {
+      "name": "Full grid",
+      "input": "2 2\n1 1\n1 1",
+      "expected_output": "8",
+      "explanation": "Only external edges count as perimeter"
+    }
+  ],
+  "hints": [
+    "Count edges that touch water or boundary",
+    "For each land cell, check all 4 directions",
+    "Alternative: count total land cells * 4, then subtract internal edges * 2"
+  ],
+  "time_complexity": "O(rows * cols)",
+  "space_complexity": "O(1)"
+}
