@@ -100,36 +100,35 @@ void dfs(int i, int j, vector<vector<int>>& grid) {
     int rows = grid.size();
     int cols = grid[0].size();
     
-    // If out of bounds or water, increment perimeter counter
     if (i < 0 || i >= rows || j < 0 || j >= cols || grid[i][j] == 0) {
         counter++;
         return;
     }
     
-    // If already visited (marked as -1), return
+    
     if (grid[i][j] == -1) {
         return;
     }
     
-    // Mark current cell as visited
     grid[i][j] = -1;
     
-    // Explore all 4 directions: up, down, left, right
-    dfs(i - 1, j, grid);
-    dfs(i + 1, j, grid);
-    dfs(i, j - 1, grid);
-    dfs(i, j + 1, grid);
+    //!directions
+    dfs(i - 1, j, grid); //?up
+    dfs(i + 1, j, grid); //?down
+    dfs(i, j - 1, grid); //?left
+    dfs(i, j + 1, grid); //?right
 }
 
 int islandPerimeter(vector<vector<int>>& grid) {
-    counter = 0; // Reset counter for each call
+    counter = 0; 
     
-    // Find the first land cell and start DFS
     for (int i = 0; i < grid.size(); i++) {
         for (int j = 0; j < grid[0].size(); j++) {
             if (grid[i][j] == 1) {
                 dfs(i, j, grid);
+
                 return counter;
+                break; 
             }
         }
     }
