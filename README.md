@@ -19,9 +19,6 @@ Welcome to the DSA-1 Lab! This repository contains various topics and problem se
 - [Data Structures](#data-structures)
 - [How to Use](#how-to-use)
 - [Testing with CPH Extension](#testing-with-cph-extension)
-- [Using Python to Check Code](#using-python-to-check-code)
-- [Sharing Test Cases](#sharing-test-cases)
-- [Contributing](#contributing)
 
 ## Introduction
 
