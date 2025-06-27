@@ -41,3 +41,10 @@ int main() {
 
     return 0;
 }
+/*
+Let tickets = [2,3,2], k = 2 (the last person).
+- For i=0 (<=k): min(2, tickets[2]=2) -> 2
+- For i=1 (<=k): min(3, 2) -> 2
+- For i=2 (<=k): min(2,2) -> 2
+Total = 2+2+2 = 6.
+*/
